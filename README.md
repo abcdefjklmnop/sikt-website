@@ -50,10 +50,6 @@ Feltene i `src/data/site.json` og de juridiske sidene inneholder bevisst `[TODO:
 
 `scripts/launch-check.mjs` feiler hvis slike verdier står igjen, og `draft: true` hindrer indeksering. Det betyr at siden ikke kan publiseres ved et uhell før opplysningene er reelle. D1 og Resend er ikke tilkoblet, og produksjonsmiljøet er ikke testet.
 
-## Bakgrunn
-
-Prosjektet inngår i Karos Mokrians portefølje og er utviklet med KI-assistanse. Beskrivelsene over gjelder det koden faktisk demonstrerer.
-
 ## Lisens
 
 MIT for koden i dette repoet – se [LICENSE](LICENSE). Skrifttypen Manrope brukes under SIL Open Font License, se `public/licenses/`.
