@@ -1,0 +1,5 @@
+---
+interface Props { footer?: boolean; }
+const { footer = false } = Astro.props;
+---
+<a href="/" class:list={['brand', { 'brand-large': footer }]} aria-label="Sikt – til forsiden">sikt<span aria-hidden="true">.</span></a>

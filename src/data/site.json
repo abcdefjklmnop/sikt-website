@@ -1,0 +1,10 @@
+{
+  "name": "Sikt",
+  "legalName": "[TODO: Registrert foretaksnavn]",
+  "url": "https://example.invalid",
+  "email": "[TODO: Firmaets e-postadresse]",
+  "orgNumber": "[TODO: Organisasjonsnummer]",
+  "postalAddress": "[TODO: Virksomhetens postadresse]",
+  "city": "Bergen",
+  "draft": true
+}

@@ -1,0 +1,52 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import site from '../data/site.json';
+interface Props { title: string; description: string; noindex?: boolean; schema?: Record<string, unknown>; }
+const { title, description, noindex = false, schema } = Astro.props;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': ['Organization', 'LocalBusiness'],
+  '@id': `${site.url}/#virksomhet`, name: site.name, url: site.url,
+  description: 'Cybersikkerhet og webutvikling for små og mellomstore bedrifter. To personer i Bergen.',
+  logo: `${site.url}/favicon.svg`,
+  address: { '@type': 'PostalAddress', addressLocality: 'Bergen', addressCountry: 'NO' },
+  areaServed: { '@type': 'Country', name: 'Norge' },
+  ...(site.email.includes('[TODO:') ? {} : { email: site.email }),
+};
+---
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#171d1b" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={site.draft || noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nb_NO" />
+    <meta property="og:site_name" content="Sikt" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/og-image.png', site.url).href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Sikt. Bedre oversikt. Tryggere drift. Cybersikkerhet og webutvikling i Bergen." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(organization).replace(/</g, '\u003c')} />
+    {schema && <script type="application/ld+json" is:inline set:html={JSON.stringify(schema).replace(/</g, '\u003c')} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#hovedinnhold">Hopp til innhold</a>
+    <Header />
+    <main id="hovedinnhold"><slot /></main>
+    <Footer />
+    <script src="../scripts/navigation.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+import LegalContent from '../components/LegalContent.astro';
+import { privacySections, legalDraftNotice, legalUpdated } from '../data/legal';
+---
+<Base title="Personvern | Sikt" description="Hvordan Sikt planlegger å behandle opplysninger fra nettstedet og kontaktskjemaet. Informasjon om formål, mottakere og rettigheter."><div class="container legal-page"><p class="eyebrow">SIKT / PERSONVERN</p><h1>Opplysningene dine.</h1><p class="intro">Her forklarer vi hvilke opplysninger nettstedet bruker, hvorfor de trengs og hvilke rettigheter du har.</p>{site.draft && <p class="draft-note">{legalDraftNotice}</p>}<p class="quiet-note">Sist gjennomgått: {legalUpdated}</p><LegalContent sections={privacySections} /></div></Base>

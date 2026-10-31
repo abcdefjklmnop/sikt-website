@@ -1,0 +1,17 @@
+---
+import Icon from './Icon.astro';
+import site from '../data/site.json';
+---
+<form id="contact-form" action="/api/contact" method="post" class="contact-form">
+  {site.draft && <p class="draft-note"><strong>Forhåndsvisning.</strong> Kontaktskjemaet åpnes når firmaopplysninger og e-postoppsett er avklart.</p>}
+  <div class="form-row"><div><label for="name">Navn</label><input id="name" name="name" autocomplete="name" required minlength="2" maxlength="100" placeholder="Ditt navn" aria-describedby="name-error" /><span id="name-error" class="field-error"></span></div><div><label for="company">Bedrift <span>(valgfritt)</span></label><input id="company" name="company" autocomplete="organization" maxlength="120" placeholder="Bedriftens navn" aria-describedby="company-error" /><span id="company-error" class="field-error"></span></div></div>
+  <label for="email">E-post</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="deg@bedriften.no" aria-describedby="email-error" /><span id="email-error" class="field-error"></span>
+  <label for="message">Hva ønsker du hjelp med?</label><textarea id="message" name="message" rows="4" required minlength="10" maxlength="4000" placeholder="Fortell kort om bedriften og hva du vil få oversikt over." aria-describedby="message-hint message-error"></textarea><span id="message-error" class="field-error"></span>
+  <p id="message-hint" class="field-hint">Ikke skriv passord, sensitive personopplysninger eller detaljer om sikkerhetshull.</p>
+  <div class="honeypot" aria-hidden="true"><label for="website">La dette feltet stå tomt</label><input id="website" name="website" tabindex="-1" autocomplete="off" /></div>
+  <p class="privacy-hint">Vi bruker opplysningene for å svare på henvendelsen din. Les om <a href="/personvern/">hvordan vi behandler personopplysninger</a>.</p>
+  <button class="button button-primary form-submit" type="submit">Be om en gratis samtale <Icon /></button>
+  <p id="form-status" class="form-status" aria-live="polite" tabindex="-1"></p>
+  <noscript><p class="field-hint">Skjemaet fungerer også uten JavaScript. Du får en egen bekreftelses- eller feilside etter innsending.</p></noscript>
+</form>
+<script src="../scripts/contact.ts"></script>

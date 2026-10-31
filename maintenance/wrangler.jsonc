@@ -1,0 +1,12 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "sikt-contact-cleanup",
+  "main": "./cleanup.ts",
+  "compatibility_date": "2026-10-20",
+  "triggers": { "crons": ["7 * * * *"] },
+  "d1_databases": [{
+    "binding": "CONTACT_DB",
+    "database_name": "sikt-contact-limits",
+    "database_id": "00000000-0000-0000-0000-000000000000"
+  }]
+}

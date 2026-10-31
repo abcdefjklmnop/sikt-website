@@ -1,0 +1,7 @@
+# Kopier til .dev.vars for lokal funksjonskjøring. Aldri commit .dev.vars.
+# Uten gyldig konfigurasjon svarer skjemaet med feil, aldri simulert suksess.
+CONTACT_ORIGIN="http://127.0.0.1:8788"
+CONTACT_FROM="[TODO: verifisert avsenderadresse]"
+CONTACT_TO="[TODO: faktisk mottakeradresse]"
+RESEND_API_KEY="[TODO: Resend API-nøkkel med bare sendetilgang]"
+RATE_LIMIT_SECRET="[TODO: tilfeldig hemmelighet, minst 32 tegn]"

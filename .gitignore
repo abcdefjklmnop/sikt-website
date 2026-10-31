@@ -1,0 +1,29 @@
+# Local settings and credentials
+.env
+.env.*
+!.env.example
+!.env.local.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+*.pem
+*.key
+*.p12
+*.pfx
+db.properties
+# Dependencies and generated files
+node_modules/
+.next/
+.astro/
+.wrangler/
+.vercel/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+*.tsbuildinfo
+build/
+target/
+*.class
+.DS_Store
+*.log
+dist/

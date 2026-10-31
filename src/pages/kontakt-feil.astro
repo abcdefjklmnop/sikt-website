@@ -1,0 +1,6 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import site from '../data/site.json';
+---
+<Base title="Sendingen ble ikke bekreftet | Sikt" description="Hjelp hvis kontaktskjemaet ikke kunne bekrefte innsendingen." noindex><div class="container status-page"><p class="eyebrow">SIKT / KONTAKT</p><h1>Sendingen ble<br />ikke bekreftet.</h1><p>Kontroller at feltene er fylt ut. Ved flere forsøk fra samme nettverk må du vente opptil 15 minutter. Du kan bruke tilbakeknappen i nettleseren for å se om teksten er bevart, eller kontakte oss på e-post.</p><p class="mt-5">{site.email}</p><p class="quiet-note">En avbrutt forbindelse kan bety at meldingen er sendt uten at vi fikk bekreftelsen. Vent litt før du prøver igjen.</p><a href="/#kontakt" class="button button-primary">Til kontaktskjemaet <Icon /></a></div></Base>

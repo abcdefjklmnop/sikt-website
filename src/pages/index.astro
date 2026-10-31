@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import SystemIllustration from '../components/SystemIllustration.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { areas, faqs } from '../data/content';
+import site from '../data/site.json';
+const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(({ question, answer }) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) };
+const risks = [
+  ['En faktura som ser riktig ut.', 'En falsk e-post kan få noen til å betale til feil konto. Vi ser på e-postoppsett og rutinene rundt betaling.'],
+  ['En konto dere mister kontroll over.', 'Et stjålet passord kan gi andre tilgang til kundedata og dokumenter. Vi går gjennom tilganger og ekstra beskyttelse ved innlogging.'],
+  ['En arbeidsdag som stopper opp.', 'Løsepengevirus kan låse prosjektfiler og regnskap. Vi undersøker sikkerhetskopier og hvordan dere kan gjenopprette data.'],
+];
+const steps = [
+  ['Kartlegging', 'Vi blir kjent med bedriften, systemene og det som må fungere hver dag. Sammen avgrenser vi oppdraget.'],
+  ['Gjennomgang', 'Vi undersøker avtalt oppsett, tilganger og rutiner. Vi ber om minst mulig tilgang og avtaler alle tester.'],
+  ['Forståelig rapport', 'Dere får dokumenterte observasjoner, mulige konsekvenser og begrensninger forklart i vanlig norsk.'],
+  ['Prioritert tiltaksplan', 'Vi går gjennom hva dere bør gjøre først, hvem som kan hjelpe og hva som kan vente.'],
+];
+---
+<Base title="IT-sikkerhet Bergen | Sikt – sikkerhetssjekk for bedrifter" description="Sikt hjelper små bedrifter med datasikkerhet og webutvikling. Få oversikt over nettside, e-post, tilganger og backup. To personer i Bergen. Gratis innledende samtale." schema={schema}>
+  <section class="hero container" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="tiny-line"></span> CYBERSIKKERHET FOR SMÅ BEDRIFTER</p>
+      <h1 id="hero-title">Bedre oversikt.<br />Tryggere <span>drift.</span></h1>
+      <p class="hero-description">Du holder bedriften i gang.<br />Vi hjelper deg å sikre det den er avhengig av.</p>
+      <p class="hero-detail">En konkret sikkerhetssjekk av nettside, e-post, tilganger og rutiner. Forklart så du vet hva du bør gjøre først.</p>
+      <div class="hero-actions"><a class="button button-primary" href="#kontakt">Bestill en gratis samtale <Icon /></a><a class="text-link" href="#sikkerhetssjekk">Se hva vi sjekker <span aria-hidden="true">↓</span></a></div>
+      <p class="hero-note">Uforpliktende. Direkte med oss som gjør jobben.</p>
+    </div>
+    <SystemIllustration />
+  </section>
+  <div class="trust-bar"><div class="container trust-inner"><p><Icon name="pin" /> To personer. Base i Bergen.</p><p><Icon name="shield" /> Avtalt omfang. Tydelige prioriteringer.</p><p><Icon name="check" /> Ingen forkunnskaper nødvendig.</p></div></div>
+
+  <section class="section container" aria-labelledby="risiko-title">
+    <div class="section-heading"><p class="eyebrow">01 / ARBEIDSHVERDAGEN DIN</p><div><h2 id="risiko-title">Det handler om å få<br />jobben gjort. Også i morgen.</h2><p>Tilbud, tegninger, kundelister og regnskap. Mye av bedriften ligger digitalt. Små svakheter kan få praktiske konsekvenser.</p></div></div>
+    <div class="risk-grid">{risks.map(([title, text], index) => <article class="risk-item"><span class="risk-number">0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+    <p class="quiet-note">Generelle eksempler – ikke funn hos din bedrift. Sikkerhet starter med å undersøke, ikke å gjette.</p>
+  </section>
+
+  <section id="sikkerhetssjekk" class="section solution" aria-labelledby="solution-title">
+    <div class="container">
+      <div class="section-heading"><p class="eyebrow">02 / SIKT SIKKERHETSSJEKK</p><div><h2 id="solution-title">Fra «er vi sikre nok?»<br />til «dette tar vi først».</h2><p>Én samlet gjennomgang av det grunnleggende. Dere får oversikten dere trenger for å ta gode valg, uten å bli IT-eksperter.</p></div></div>
+      <div class="area-grid">{areas.map((area) => <article><span class="area-number">{area.number}</span><h3>{area.title}</h3><p>{area.text}</p></article>)}</div>
+      <div class="solution-bottom"><p><Icon name="shield" /> Gjennomgangen starter med et skriftlig avtalt omfang.</p><a class="text-link" href="#slik-jobber-vi">Slik foregår det <Icon /></a></div>
+    </div>
+  </section>
+
+  <section class="section container deliverables" aria-labelledby="leveranser-title">
+    <div class="deliverables-copy"><p class="eyebrow">03 / DET DU SITTER IGJEN MED</p><h2 id="leveranser-title">En rapport du<br />faktisk kan bruke.</h2><p>Du skal slippe å oversette en teknisk rapport til en arbeidsplan. Vi forklarer både hva vi har sett, og hva det betyr for driften.</p><ul class="check-list"><li><Icon name="check" /><span>En oppsummering for deg som leder.</span></li><li><Icon name="check" /><span>Observasjoner med grunnlag og avgrensninger.</span></li><li><Icon name="check" /><span>Tiltak sortert etter hva som bør tas først.</span></li><li><Icon name="check" /><span>En gjennomgang sammen med oss, med rom for spørsmål.</span></li></ul><p class="quiet-note">Dere kan følge opp med egen IT-leverandør eller avtale hjelp fra oss.</p></div>
+    <div class="report-wrap"><div class="report-sheet"><div class="report-brand">sikt<span>.</span><small>SIKKERHETSSJEKK</small></div><p class="report-kicker">FRA OVERSIKT TIL HANDLING</p><h3>Dette bør dere<br />ta tak i først.</h3><p class="report-intro">Rapporten samler vurderinger og tiltak i en rekkefølge som gir mening.</p><div class="report-line"><span>01</span><div><strong>Prioritet</strong><p>Hva haster – og hvorfor?</p></div><Icon name="arrow" /></div><div class="report-line"><span>02</span><div><strong>Tiltak</strong><p>Hva bør gjøres konkret?</p></div><Icon name="arrow" /></div><div class="report-line"><span>03</span><div><strong>Ansvar</strong><p>Hvem følger det opp?</p></div><Icon name="arrow" /></div><div class="report-footer"><span>ET FORSTÅELIG BESLUTNINGSGRUNNLAG</span><span>01 — 03</span></div></div><p class="illustration-caption">Illustrasjon av rapportens struktur. Ikke faktiske funn.</p></div>
+  </section>
+
+  <section id="for-hvem" class="section industries" aria-labelledby="industries-title"><div class="container"><div class="section-heading"><p class="eyebrow">04 / FOR DEG SOM DRIVER BEDRIFT</p><div><h2 id="industries-title">Dere bygger, fikser<br />og forvalter. Vi gir oversikt.</h2><p>For små og mellomstore bedrifter som trenger en praktisk start på sikkerhetsarbeidet.</p></div></div><div class="industry-grid">
+    <article><Icon name="building" /><h3>Bygg og entreprenør</h3><p>Prosjektfiler, tegninger og underleverandører. Få oversikt over hvem som har tilgang, også når prosjektet er ferdig.</p><span>Tilganger som følger prosjektet.</span></article>
+    <article><Icon name="tool" /><h3>Håndverk og service</h3><p>Tilbud, fakturaer og kundeavtaler på farten. Beskytt innloggingene dere bruker fra kontoret og ute på jobb.</p><span>Rutiner som fungerer i en travel dag.</span></article>
+    <article><Icon name="house" /><h3>Eiendom og forvaltning</h3><p>Leietakeropplysninger, driftsdokumenter og mange kontaktflater. Få tydeligere ansvar for data og tilganger.</p><span>Kontroll på tvers av leverandører.</span></article>
+  </div></div></section>
+
+  <section id="om-sikt" class="section container about" aria-labelledby="about-title"><div><p class="eyebrow">05 / MENNESKENE BAK</p><h2 id="about-title">Lite team.<br />Kort vei til oss.</h2><p class="about-lead">Vi er to personer i Bergen som jobber med cybersikkerhet og webutvikling.</p><p>Hos oss snakker du med dem som gjør arbeidet. Vi avklarer hva dere trenger, sier fra om begrensninger og forklarer anbefalingene våre i klartekst.</p><a class="text-link" href="#kontakt">Bli kjent med oss <Icon /></a></div><div class="about-values"><div><span>01</span><h3>Direkte kontakt</h3><p>Du slipper å forklare det samme til stadig nye kontaktpersoner.</p></div><div><span>02</span><h3>Et avtalt oppdrag</h3><p>Dere vet hva vi skal undersøke, hva det koster og hva dere får.</p></div><div><span>03</span><h3>Råd dere kan handle på</h3><p>Vi knytter teknikken til det som betyr noe for driften deres.</p></div></div></section>
+
+  <section class="container web-section" aria-labelledby="web-title"><div class="web-icon"><Icon name="globe" /><span aria-hidden="true">&lt;/&gt;</span></div><div><p class="eyebrow">OG NÅR DERE TRENGER NOE NYTT</p><h2 id="web-title">Nettsider med sikkerhet<br />som en del av grunnarbeidet.</h2><p>Vi bygger nettsider, webløsninger og interne verktøy på bestilling. Med tydelige brukerreiser, minst mulig datainnsamling og et bevisst forhold til tilganger og vedlikehold.</p><a class="text-link" href="#kontakt">Fortell oss hva dere trenger <Icon /></a></div></section>
+
+  <section id="slik-jobber-vi" class="section container" aria-labelledby="process-title"><div class="section-heading"><p class="eyebrow">06 / FRA FØRSTE PRAT TIL TILTAK</p><div><h2 id="process-title">En ryddig prosess.<br />Ingen løse tråder.</h2><p>Vi avtaler pris og leveringstid før oppstart. Dere stiller med én kontaktperson og en oversikt over systemene dere bruker.</p></div></div><ol class="process-grid">{steps.map(([title, text], index) => <li><span class="step-number">0{index + 1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol><div class="process-note"><Icon name="lock" /><p><strong>Dere beholder kontrollen.</strong> Ikke send oss passord. Vi avtaler nødvendige tilganger, tidspunkt og eventuelle endringer på forhånd. Videre oppfølging avtales separat.</p></div></section>
+
+  <section id="sporsmal" class="section faq-section" aria-labelledby="faq-title"><div class="container faq-layout"><div><p class="eyebrow">07 / GREIT Å VITE</p><h2 id="faq-title">Lurer du<br />på noe?</h2><p>Her er svar på spørsmålene det er naturlig å ha før vi setter i gang.</p><a class="text-link" href="#kontakt">Ta det med oss <Icon /></a></div><div class="faq-list">{faqs.map(({ question, answer }) => <details><summary>{question}<Icon name="plus" /></summary><p>{answer}</p></details>)}</div></div></section>
+
+  <section id="kontakt" class="section container contact-section" aria-labelledby="contact-title"><div class="contact-copy"><p class="eyebrow">08 / FØRSTE STEG ER EN SAMTALE</p><h2 id="contact-title">La oss få<br /><span>litt sikt.</span></h2><p>Fortell kort om bedriften. Vi tar en uforpliktende prat om hva dere trenger – og om vi er de rette til å hjelpe.</p><div class="contact-details"><p><Icon name="mail" />{site.email.includes('[TODO:') ? <span>{site.email}</span> : <a href={`mailto:${site.email}`}>{site.email}</a>}</p><p><Icon name="pin" />Bergen, Norge. Vi jobber også digitalt.</p></div><p class="quiet-note">Gratis innledende samtale. Et eventuelt oppdrag og prisen på det avtales etterpå.</p></div><ContactForm /></section>
+</Base>

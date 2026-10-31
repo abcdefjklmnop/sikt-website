@@ -1,0 +1,11 @@
+---
+import Brand from './Brand.astro';
+import Icon from './Icon.astro';
+import site from '../data/site.json';
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-main"><div><Brand footer /><p>Bedre oversikt. Tryggere drift.</p></div><p class="footer-location"><Icon name="pin" /> Bergen, Norge<br />Cybersikkerhet og webutvikling.</p></div>
+    <div class="footer-bottom"><p>© {new Date().getFullYear()} Sikt <span class="footer-org">Org.nr. {site.orgNumber}</span></p><nav aria-label="Juridisk informasjon"><a href="/personvern/">Personvern</a><a href="/informasjonskapsler/">Informasjonskapsler</a><a href="/#kontakt">Kontakt</a></nav></div>
+  </div>
+</footer>

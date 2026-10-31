@@ -1,0 +1,6 @@
+---
+import type { LegalSection } from '../data/legal';
+interface Props { sections: LegalSection[]; }
+const { sections } = Astro.props;
+---
+{sections.map((section) => <section id={section.id} aria-labelledby={`${section.id}-title`}><h2 id={`${section.id}-title`}>{section.title}</h2>{section.paragraphs.map((text) => <p>{text}</p>)}{section.bullets && <ul>{section.bullets.map((text) => <li>{text}</li>)}</ul>}{section.links && <ul>{section.links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul>}</section>)}

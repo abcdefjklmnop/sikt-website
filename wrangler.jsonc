@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sikt-web",
+  "compatibility_date": "2026-10-20",
+  "pages_build_output_dir": "./dist",
+  "d1_databases": [
+    {
+      "binding": "CONTACT_DB",
+      "database_name": "sikt-contact-limits",
+      // [TODO: Erstatt med ID fra `wrangler d1 create sikt-contact-limits` før deploy.]
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "./migrations"
+    }
+  ],
+  "vars": {
+    // [TODO: Faktisk HTTPS-origin, uten sti eller avsluttende skråstrek.]
+    "CONTACT_ORIGIN": "https://sikt.example.invalid",
+    // [TODO: Verifisert avsenderdomene hos Resend og faktisk mottaker.]
+    "CONTACT_FROM": "nettside@sikt.example.invalid",
+    "CONTACT_TO": "hei@sikt.example.invalid"
+  }
+}

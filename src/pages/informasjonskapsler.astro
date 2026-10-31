@@ -1,0 +1,7 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+import LegalContent from '../components/LegalContent.astro';
+import { cookieSections, legalDraftNotice, legalUpdated } from '../data/legal';
+---
+<Base title="Informasjonskapsler og lokal lagring | Sikt" description="Sikts nettsted er laget uten besøksanalyse, sporingspiksler eller valgfrie informasjonskapsler. Les om oppsettet og hva som må kontrolleres."><div class="container legal-page"><p class="eyebrow">SIKT / INFORMASJONSKAPSLER</p><h1>En side uten sporing.</h1><p class="intro">Informasjonskapsler er små tekstfiler som et nettsted kan lagre i nettleseren. Her forklarer vi hvordan denne siden er satt opp.</p>{site.draft && <p class="draft-note">{legalDraftNotice}</p>}<p class="quiet-note">Sist gjennomgått: {legalUpdated}</p><LegalContent sections={cookieSections} /></div></Base>

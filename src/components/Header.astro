@@ -1,0 +1,24 @@
+---
+import Brand from './Brand.astro';
+import Icon from './Icon.astro';
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <Brand />
+    <nav class="desktop-nav" aria-label="Hovedmeny">
+      <a href="/#sikkerhetssjekk">Sikkerhetssjekken</a>
+      <a href="/#om-sikt">Om Sikt</a>
+      <a href="/#sporsmal">Spørsmål og svar</a>
+    </nav>
+    <a class="header-cta" href="/#kontakt">La oss ta en prat <Icon /></a>
+    <details class="mobile-nav">
+      <summary aria-label="Åpne eller lukk meny">Meny <span aria-hidden="true">＋</span></summary>
+      <nav aria-label="Mobilmeny">
+        <a href="/#sikkerhetssjekk">Sikkerhetssjekken</a>
+        <a href="/#om-sikt">Om Sikt</a>
+        <a href="/#sporsmal">Spørsmål og svar</a>
+        <a href="/#kontakt">La oss ta en prat <Icon /></a>
+      </nav>
+    </details>
+  </div>
+</header>
